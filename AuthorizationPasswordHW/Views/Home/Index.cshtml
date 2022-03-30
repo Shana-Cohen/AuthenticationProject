@@ -1,0 +1,29 @@
+﻿@using AuthorizationPasswordHW.Web.Models
+@model AdsViewModel
+
+
+<div class="container">
+    <main role="main" class="pb-3" style="margin-top: 70px;">
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                @foreach (AuthorizationPasswordHW.Data.Ad ad in Model.Ads)
+                {
+                    <div class="jumbotron">
+                        <h3>@ad.Title</h3>
+                        <h5>Listed by @ad.UserId</h5>
+                        <h5>Listed on @ad.DateSubmitted.ToLongDateString()</h5>
+                        <h5>Phone Number: @ad.PhoneNumber</h5>
+                        <h3>Description:</h3>
+                        <p>@ad.Description</p>
+                        <form method="post" action="/home/deletead">
+                            <input type="hidden" name="id" value="1034" />
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </main>
+</div>
+
